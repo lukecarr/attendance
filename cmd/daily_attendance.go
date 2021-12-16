@@ -5,18 +5,20 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const URL = "https://explore-education-statistics.service.gov.uk/find-statistics/attendance-in-education-and-early-years-settings-during-the-coronavirus-covid-19-outbreak"
-
 func MakeDailyAttendanceCmd() *cobra.Command {
 	return &cobra.Command{
 		Use:   "daily",
 		Short: "Scrapes daily attendance data for schools",
 		Run: func(cmd *cobra.Command, args []string) {
-			scraper.DailyAttendance(URL, "daily_attendance.csv")
+			url, _ := cmd.Root().Flags().GetString("dfe-url")
+			out, _ := cmd.Flags().GetString("output")
+			scraper.DailyAttendance(url, out)
 		},
 	}
 }
 
 func init() {
-	rootCmd.AddCommand(MakeDailyAttendanceCmd())
+	cmd := MakeDailyAttendanceCmd()
+	cmd.PersistentFlags().String("output", "daily_attendance.csv", "The output CSV file for daily attendance data")
+	rootCmd.AddCommand(cmd)
 }
