@@ -1,6 +1,6 @@
 module github.com/lukecarr/dfe-attendance
 
-go 1.16
+go 1.17
 
 require (
 	github.com/gocolly/colly v1.2.0
