@@ -38,3 +38,8 @@ archives:
 
 checksum:
   name_template: "checksums.txt"
+
+release:
+  github:
+    owner: lukecarr
+    name: dfe-attendance
