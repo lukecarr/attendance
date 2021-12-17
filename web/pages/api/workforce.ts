@@ -12,7 +12,7 @@ const getCsvText = async () => {
 
   const { data: zipData } = await axios.get(downloadUrl, { responseType: 'arraybuffer' })
   const zip = new AdmZip(zipData)
-  const csvText = zip.readAsText('data/table_1b_daily_attendance_in_state_schools_during_covid_19_.csv', 'utf8')
+  const csvText = zip.readAsText('data/table_1d_daily_workforce_absence_in_education_settings_during_covid_19_.csv', 'utf8')
 
   return csvText
 }
@@ -24,6 +24,6 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
 
   res.status(200)
     .setHeader('Content-Type', 'text/csv')
-    .setHeader('Content-Disposition', 'attachment;filename=daily_attendance.csv')
+    .setHeader('Content-Disposition', 'attachment;filename=daily_workforce_absence.csv')
     .send(csvText)
 }
