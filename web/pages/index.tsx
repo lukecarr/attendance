@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import styles from 'styles/Home.module.css'
 
 const Home = () => {
@@ -15,10 +17,12 @@ const Home = () => {
         </p>
 
         <div className={styles.grid}>
-          <a href="/api/daily" className={styles.card}>
-            <h2>Daily Attendance &rarr;</h2>
-            <p>Daily attendance data for schools from Sep 2020 to present!</p>
-          </a>
+          <Link href="/api/daily" passHref>
+            <a className={styles.card}>
+              <h2>Daily Attendance &rarr;</h2>
+              <p>Daily attendance data for schools from Sep 2020 to present!</p>
+            </a>
+          </Link>
         </div>
       </main>
     </div>
