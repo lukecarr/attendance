@@ -37,7 +37,7 @@ const Home: FunctionComponent<Props> & { title?: string } = ({ endpoints }) => {
         </p>
 
         <div className="flex flex-col w-full sm:flex-row items-center justify-center flex-wrap max-w-3xl">
-          {endpoints.map(({ href, title, desc }) => <Link key={href} href={href} passHref>
+          {endpoints.map(({ href, title, desc }) => <Link key={href} href={`/api/${href}`} passHref>
             <a className="m-4 p-6 text-left text-inherit no-underline border border-slate-200 max-w-xs rounded-lg hover:text-blue-600 hover:border-blue-600">
               <h2 className="mb-4 text-2xl font-bold">{title} &rarr;</h2>
               <p className="text-xl font-medium">{desc}</p>
