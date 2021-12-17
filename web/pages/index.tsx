@@ -1,6 +1,26 @@
+import type { GetStaticProps } from 'next'
+import type { FunctionComponent } from 'react'
 import Link from 'next/link'
 
-const Home = () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const { endpoints } = await import('../data/endpoints.json')
+
+  return {
+    props: {
+      endpoints,
+    },
+  }
+}
+
+type Props = {
+  endpoints: {
+    href: string
+    title: string
+    desc: string
+  }[]
+}
+
+const Home: FunctionComponent<Props> = ({ endpoints }) => {
   return (
     <div className="container px-8 mx-auto">
       <main className="min-h-screen py-16 flex flex-col justify-center items-center">
@@ -17,12 +37,12 @@ const Home = () => {
         </p>
 
         <div className="flex flex-col w-full sm:flex-row items-center justify-center flex-wrap max-w-3xl">
-          <Link href="/api/daily" passHref>
+          {endpoints.map(({ href, title, desc }) => <Link key={href} href={href} passHref>
             <a className="m-4 p-6 text-left text-inherit no-underline border border-slate-200 max-w-xs rounded-lg hover:text-blue-600 hover:border-blue-600">
-              <h2 className="mb-4 text-2xl font-bold">Daily Attendance &rarr;</h2>
-              <p className="text-xl font-medium">Daily attendance data for schools from Sep 2020 to present!</p>
+              <h2 className="mb-4 text-2xl font-bold">{title} &rarr;</h2>
+              <p className="text-xl font-medium">{desc}</p>
             </a>
-          </Link>
+          </Link>)}
         </div>
       </main>
     </div>
