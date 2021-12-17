@@ -20,7 +20,7 @@ type Props = {
   }[]
 }
 
-const Home: FunctionComponent<Props> = ({ endpoints }) => {
+const Home: FunctionComponent<Props> & { title?: string } = ({ endpoints }) => {
   return (
     <div className="container px-8 mx-auto">
       <main className="min-h-screen py-16 flex flex-col justify-center items-center">
