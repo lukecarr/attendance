@@ -1,9 +1,0 @@
-{
-  "endpoints": [
-    {
-      "href": "/daily",
-      "title": "Daily Attendance",
-      "desc": "Daily attendance data for schools from Sep 2020 to present!"
-    }
-  ]
-}

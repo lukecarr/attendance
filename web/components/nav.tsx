@@ -10,7 +10,7 @@ const Nav: FunctionComponent = () => {
           <Link href="/" passHref>
             <a className="inline-flex items-center text-current no-underline hover:opacity-80 font-bold">
               DfE Attendance Scraper
-              <span className="bg-blue-600 rounded-lg text-white py-1 px-2 uppercase tracking-widest font-mono text-xs font-bold ml-4">Unofficial</span>
+              <span className="bg-gradient-to-r from-orange-500 via-rose-500 to-violet-700 rounded-lg text-white py-1 px-2 uppercase tracking-widest font-mono text-xs font-bold ml-4">Unofficial</span>
             </a>
           </Link>
         </div>
