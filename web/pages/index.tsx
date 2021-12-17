@@ -1,6 +1,7 @@
 import type { GetStaticProps } from 'next'
 import type { FunctionComponent } from 'react'
 import Link from 'next/link'
+import Nav from '@/c/nav'
 
 export const getStaticProps: GetStaticProps = async () => {
   const { endpoints } = await import('../data/endpoints.json')
@@ -22,8 +23,9 @@ type Props = {
 
 const Home: FunctionComponent<Props> & { title?: string } = ({ endpoints }) => {
   return (
-    <div className="container px-8 mx-auto">
-      <main className="min-h-screen py-16 flex flex-col justify-center items-center">
+    <>
+      <Nav />
+      <main className="py-16 flex flex-col justify-center items-center">
         <h1 className="text-6xl text-center font-extrabold">
           DfE Attendance Scraper
         </h1>
@@ -45,7 +47,7 @@ const Home: FunctionComponent<Props> & { title?: string } = ({ endpoints }) => {
           </Link>)}
         </div>
       </main>
-    </div>
+    </>
   )
 }
 
