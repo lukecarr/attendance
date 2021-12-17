@@ -7,6 +7,7 @@
 - 💪 **Simple to use.** Scrape attendance data with a single command!
 - 🏇 **Super fast.** Automatically scrapes, downloads ZIP archives, and extracts CSV files in seconds!
 - 🎉 **Support for Windows, MacOS (Intel & Apple Silicon), Linux, and FreeBSD!**
+- 🌐 **Web-based API.** We also offer a web-based API (can be used as a source in Power BI!) at [https://dfe-attendance.vercel.app](https://dfe-attendance.vercel.app)!
 
 ## 🚀 Quick Start
 
