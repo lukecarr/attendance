@@ -1,3 +1,5 @@
+![dfe-attendance](https://user-images.githubusercontent.com/24438483/146531921-0e1114fa-34f8-40e3-864e-eb6ae0b148ff.png)
+
 [![latest version](https://img.shields.io/github/v/release/lukecarr/dfe-attendance?color=blue&label=latest&sort=semver)](https://github.com/lukecarr/dfe-attendance/releases)
 [![maintainability](https://img.shields.io/codeclimate/maintainability/lukecarr/dfe-attendance)](https://codeclimate.com/github/lukecarr/dfe-attendance)
 [![code coverage](https://img.shields.io/codeclimate/coverage/lukecarr/dfe-attendance)](https://codeclimate.com/github/lukecarr/dfe-attendance)
