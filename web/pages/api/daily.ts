@@ -17,7 +17,7 @@ const getCsvText = async () => {
   const zip = new AdmZip(zipData)
   const csvText = zip.readAsText('data/table_1b_daily_attendance_in_state_schools_during_covid_19_.csv', 'utf8')
 
-  cache && await cache.set('daily_attendance', csvText, 1000 * 60 * 60 * 24)
+  cache && await cache.set('daily_attendance', csvText, 'ex', 60 * 60 * 24)
 
   return csvText
 }
