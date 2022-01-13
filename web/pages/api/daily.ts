@@ -12,7 +12,7 @@ const getCsvText = async () => {
 
   const { data: zipData } = await axios.get(downloadUrl, { responseType: 'arraybuffer' })
   const zip = new AdmZip(zipData)
-  const csvText = zip.readAsText('data/table_1b_daily_attendance_in_state_schools_during_covid_19_.csv', 'utf8')
+  const csvText = zip.readAsText('data/table_1b_daily_attendance_in_state_schools_during_covid_19.csv', 'utf8')
 
   return csvText
 }
