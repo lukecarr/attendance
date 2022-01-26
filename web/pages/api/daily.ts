@@ -8,11 +8,19 @@ const getCsvText = async () => {
 
   const $ = cheerio.load(data)
 
-  const downloadUrl = $('a[href]').filter(function () { return $(this).text() === 'Download all data' }).first().attr('href')
+  const downloadUrl = $('nav[aria-labelledby="data-downloads"] li:last-child a[href]').filter(function () { return $(this).text() === 'Download all data' }).first().attr('href')
 
   const { data: zipData } = await axios.get(downloadUrl, { responseType: 'arraybuffer' })
   const zip = new AdmZip(zipData)
-  const csvText = zip.readAsText('data/table_1b_daily_attendance_in_state_schools_during_covid_19.csv', 'utf8')
+
+  let csvText: string | null = null
+
+  for (const entry of zip.getEntries()) {
+    if (!entry.isDirectory && entry.entryName.includes('table_1b')) {
+      csvText = zip.readAsText(entry.entryName, 'utf8')
+      break
+    }
+  }
 
   return csvText
 }
@@ -25,5 +33,5 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   res.status(200)
     .setHeader('Content-Type', 'text/csv')
     .setHeader('Content-Disposition', 'attachment;filename=daily_attendance.csv')
-    .send(csvText)
+    .send(csvText ?? '')
 }

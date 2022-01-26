@@ -16,7 +16,7 @@ func Generic(url, in, out string) {
 
 	c := colly.NewCollector()
 
-	c.OnHTML("a[href]", func(e *colly.HTMLElement) {
+	c.OnHTML("nav[aria-labelledby=\"data-downloads\"] li:last-child a[href]", func(e *colly.HTMLElement) {
 		if e.Text == "Download all data" {
 			spinner2.Success("Found 'Download all data' button!")
 			downloadHref = e.Attr("href")
@@ -30,7 +30,15 @@ func Generic(url, in, out string) {
 			spinner.Success("Downloaded attendance data archive!")
 
 			spinner1, _ := pterm.DefaultSpinner.Start("Extracting CSV file from archive")
-			if err := util.ExtractFile(zip, in, out); err != nil {
+
+			filename := util.FindFile(zip, in)
+
+			if filename == nil {
+				spinner1.Fail(fmt.Sprintf("Couldn't find '%s' in archive!", in))
+				os.Exit(1)
+			}
+
+			if err := util.ExtractFile(zip, *filename, out); err != nil {
 				spinner1.Fail(err.Error())
 				os.Exit(1)
 			}
