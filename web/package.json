@@ -1,5 +1,6 @@
 {
   "name": "dfe-attendance",
+  "packageManager": "pnpm@6.32.3",
   "private": true,
   "scripts": {
     "dev": "next dev",
