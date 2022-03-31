@@ -1,8 +1,10 @@
-image:
-  file: .gitpod.Dockerfile
-
 tasks:
-  - before: volta install node@16.14.2 pnpm@6.32.3
-    init: cd web && pnpm install
-    command: cd web && pnpm dev
+  - before: curl https://get.volta.sh | bash
+    init: >
+      cd web &&
+      volta install node@16.14.2 pnpm@6.32.3 &&
+      pnpm install
+    command: >
+      cd web &&
+      pnpm dev
   - init: go get -v -t -d ./...
