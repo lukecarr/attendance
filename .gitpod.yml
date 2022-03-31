@@ -3,6 +3,6 @@ image:
 
 tasks:
   - before: volta install node@16.14.2 pnpm@6.32.3
-    init: pnpm install
-    command: pnpm dev
+    init: cd web && pnpm install
+    command: cd web && pnpm dev
   - init: go get -v -t -d ./...
