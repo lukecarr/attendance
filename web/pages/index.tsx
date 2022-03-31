@@ -1,7 +1,7 @@
 import type { FunctionComponent } from 'react'
 import Nav from '@/c/nav'
 import Endpoint from '@/c/endpoint'
-import { faCalendarDay } from '@fortawesome/pro-solid-svg-icons'
+import { FiCalendar, FiUsers } from 'react-icons/fi'
 
 const Home: FunctionComponent & { title?: string } = () => {
   return (
@@ -24,10 +24,10 @@ const Home: FunctionComponent & { title?: string } = () => {
       </section>
       <div className="mx-auto w-full px-4 sm:px-6 md:px-8 max-w-screen-xl" id="endpoints">
         <div className="space-y-6 md:grid md:space-y-0 grid-cols-6 grid-rows-3 gap-6">
-          <Endpoint className="bg-gradient-to-tr from-blue-400 to-blue-700" title="Daily Attendance" href="daily" width={3} height={2} icon={faCalendarDay}>
+          <Endpoint className="bg-gradient-to-tr from-blue-400 to-blue-700" title="Daily Attendance" href="daily" width={3} height={2} icon={() => <FiCalendar />}>
             Daily attendance data for schools from Sep 2020 to present!
           </Endpoint>
-          <Endpoint className="bg-gradient-to-tr from-orange-400 to-red-700" title="Workforce Absence" href="workforce" width={3} height={2} icon={faCalendarDay}>
+          <Endpoint className="bg-gradient-to-tr from-orange-400 to-red-700" title="Workforce Absence" href="workforce" width={3} height={2} icon={() => <FiUsers />}>
             Daily workforce absence data for schools from Sep 2020 to present!
           </Endpoint>
         </div>

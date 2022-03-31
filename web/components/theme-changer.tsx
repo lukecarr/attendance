@@ -2,8 +2,7 @@ import { useTheme } from 'next-themes'
 import { useEffect } from 'react'
 import { useImmer } from 'use-immer'
 import type { FunctionComponent } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoon, faSunBright } from '@fortawesome/pro-solid-svg-icons'
+import { FiMoon, FiSun } from 'react-icons/fi'
 
 const ThemeChanger: FunctionComponent = () => {
   const [mounted, setMounted] = useImmer(false)
@@ -19,7 +18,7 @@ const ThemeChanger: FunctionComponent = () => {
 
   return (
     <button className="text-current p-2 cursor-pointer focus:ring outline-none" onClick={toggle} aria-label="Toggle Theme">
-      <FontAwesomeIcon fixedWidth icon={theme === 'light' ? faSunBright : faMoon} />
+      {theme === 'light' ? <FiSun /> : <FiMoon />}
     </button>
   )
 }
